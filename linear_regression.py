@@ -3,40 +3,41 @@ import numpy as np
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('homeprices.csv')
+# Load dataset
+df = pd.read_csv('DATASETS/homeprices.csv')
 
-# %matplotlib inline 
-plt.xlabel('area')
-plt.ylabel('prices')
-plt.scatter(df.area, df.price, color = 'red', marker = '+')
+# Check dataset structure
+print(df.head())
 
-new_df = df.drop('price', axis = 'columns')
-new_df
+# Plot data
+plt.xlabel('Area')
+plt.ylabel('Prices')
+plt.scatter(df['area'], df['price'], color='red', marker='+')
 
-price = df.price
-price
+# Prepare data for training
+X = df[['area']]  # Independent variable
+y = df['price']   # Dependent variable
 
-#Create Linear regression object
+# Create and train linear regression model
 reg = linear_model.LinearRegression()
-reg.fit(new_df, price)
+reg.fit(X, y)
 
-reg.predict([[3300]])
+# Predict price for 3300 sq. ft.
+predicted_price = reg.predict(pd.DataFrame([[3300]], columns=['area'])) 
+print(f"\nPredicted price for 3300 sq. ft: {predicted_price[0]}")
 
-reg.coef_
+# Print coefficients
+print(f"\nCoefficient (m): {reg.coef_[0]}")
+print(f"\nIntercept (c): {reg.intercept_}")
 
-reg.intercept_
+# Load new area values
+area_df = pd.read_csv('DATASETS/areas.csv')
 
-# y = mx+c
-
-# Generate CSV file with list of HOME PRICE PREDICTION 
-
-area_df = pd.read_csv('area.csv')
-area_df.head(3)
-
-p = reg.predict(area_df)
-p
-
+# Predict prices
+p = reg.predict(area_df[['area']])  # Ensure correct column selection
 area_df['prices'] = p
-area_df
 
-area_df.to_csv("prediction.csv")
+# Save predictions
+area_df.to_csv("PREDICTIONS/lr_prediction.csv", index=False)
+
+print("\nPredictions saved to prediction.csv")

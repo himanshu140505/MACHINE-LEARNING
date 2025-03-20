@@ -20,3 +20,4 @@ pythonenv/
 
 # Ignore environment variable files
 .env
+.txt

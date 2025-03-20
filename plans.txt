@@ -1,0 +1,19 @@
+1️⃣ House Price Prediction – Predict real estate prices using Linear Regression.
+
+2️⃣ Spam Email Classifier – Detect spam emails with Naïve Bayes or LSTM.
+
+3️⃣ Handwritten Digit Recognition – Classify digits from MNIST using CNNs.
+
+4️⃣ Fake News Detection – Identify fake news using NLP & TF-IDF.
+
+5️⃣ Customer Churn Prediction – Predict customer retention with Random Forest.
+
+6️⃣ Sentiment Analysis – Analyze emotions in text using NLTK or BERT.
+
+7️⃣ Recommendation System – Build a movie/music recommender using Collaborative Filtering.
+
+8️⃣ Stock Price Prediction – Predict trends using LSTMs & Time Series Analysis.
+
+9️⃣ Breast Cancer Detection – Classify tumors using SVM or Deep Learning.
+
+🔟 Autonomous Car Simulation – Train a self-driving model using Reinforcement Learning.
